@@ -1,0 +1,11 @@
+asgiref==3.7.2
+auxlib==0.0.43
+Django==4.2.2
+numpy==2.2.3
+pandas==2.2.3
+python-dateutil==2.9.0.post0
+python-dotenv==1.0.0
+pytz==2025.1
+six==1.17.0
+sqlparse==0.4.4
+tzdata==2025.1
