@@ -14,3 +14,10 @@ Pour creer les endpoints
 python -m venv env
 
 pip freeze > requirements.txt
+
+<!-- Migration -->
+>python manage.py makemigrations
+>python manage.py migrate
+
+<!-- Creation super user -->
+python manage.py createsuperuser

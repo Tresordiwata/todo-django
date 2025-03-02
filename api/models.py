@@ -6,3 +6,9 @@ class User(models.Model):
 
     def __str__(self):
         return self.nom
+
+class Post(models.Model):
+    titre=models.CharField(max_length=20)
+    content=models.CharField(max_length=50)
+    def __str__(self):
+        return self.content
