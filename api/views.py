@@ -2,10 +2,12 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import api_view
-from .models import User,Post
+from rest_framework.views import APIView
+from .models import User,PostUser
 from .serializers import UserSerializer
 from django.http import JsonResponse
 from .serializers import PostSerializer
+from rest_framework import status
 
 import requests
 
@@ -43,17 +45,27 @@ def user_detail(request,pk):
             serialiser.save()
 
 @api_view(['GET'])            
-def posts(request):
+def get_posts(request):
     # try:
         # ps=Post.objects.all()
         # psList=list(ps.values())
         # return JsonResponse(psList, safe=False)
-        if request.method == 'GET':
-            posts=Post.objects.all()
-        #     serializer=PostSerializer(posts,many=True)
-        #     return Response(serializer.data,status.status.HTTP_200_OK)
+    if request.method == 'GET':
+        posts=PostUser.objects.all()
+        # print("papapapappap")
+        # return Response(posts)
+        serializer=PostSerializer(posts,many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
     # except:
     #     erreur={
     #         "code":"erreur fatal"
     #     }
     #     return 
+
+class ExempleRoute(APIView):
+    def get(self, request):
+        rep={
+            "id":1,
+            "nom":"papy"
+        }
+        return JsonResponse(rep)
