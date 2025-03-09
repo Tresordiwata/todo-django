@@ -52,10 +52,11 @@ def get_posts(request):
         # return JsonResponse(psList, safe=False)
     if request.method == 'GET':
         posts=PostUser.objects.all()
+        post1=PostUser.objects.get(pk=1)
         # print("papapapappap")
-        # return Response(posts)
-        serializer=PostSerializer(posts,many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(post1)
+        # serializer=PostSerializer(posts,many=True)
+        # return Response(serializer.data, status=status.HTTP_200_OK)
     # except:
     #     erreur={
     #         "code":"erreur fatal"
